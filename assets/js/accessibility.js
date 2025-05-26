@@ -45,3 +45,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Modo escuro
+  if(darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+      const enabled = darkModeCSS.disabled;
+      darkModeCSS.disabled = !enabled;
+      localStorage.setItem('darkMode', !enabled);
+    });
+  }
+
+  // Tamanho da fonte
+  if(fontSizeSlider) {
+    fontSizeSlider.addEventListener('input', () => {
+      const val = fontSizeSlider.value;
+      document.documentElement.style.fontSize = val + 'px';
+      localStorage.setItem('fontSize', val);
+    });
+  }
+
+  // Daltonismo
+  if(daltonismoSelector) {
+    daltonismoSelector.addEventListener('change', () => {
+      const val = daltonismoSelector.value;
+      protCSS.disabled = val !== 'prot';
+      deutCSS.disabled = val !== 'deut';
+      tritCSS.disabled = val !== 'trit';
+      localStorage.setItem('daltonismo', val);
+    });
+  }
+
+});
