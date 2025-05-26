@@ -61,3 +61,40 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (count < 2) {
+      count++;
+      if (count === 1) {
+        firstGuess = clicked.parentNode.dataset.name;
+        clicked.parentNode.classList.add('selected');
+      } else {
+        secondGuess = clicked.parentNode.dataset.name;
+        clicked.parentNode.classList.add('selected');
+      }
+
+      if (firstGuess && secondGuess) {
+        if (firstGuess === secondGuess) {
+          setTimeout(match, delay);
+          setTimeout(resetGuesses, delay);
+        } else {
+          setTimeout(reset, delay);
+          setTimeout(resetGuesses, delay);
+        }
+      }
+      previousTarget = clicked;
+    }
+  });
+
+  function match() {
+    const selected = document.querySelectorAll('.selected');
+    selected.forEach(card => {
+      card.classList.add('matched');
+    });
+  }
+
+  function reset() {
+    const selected = document.querySelectorAll('.selected');
+    selected.forEach(card => {
+      card.classList.remove('selected');
+    });
+  }
+});
