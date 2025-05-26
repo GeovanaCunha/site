@@ -17,3 +17,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkMode = localStorage.getItem('darkMode') === 'true';
     darkModeCSS.disabled = !darkMode;
 
+    // Daltonismo
+    const daltonismo = localStorage.getItem('daltonismo') || 'none';
+    protCSS.disabled = daltonismo !== 'prot';
+    deutCSS.disabled = daltonismo !== 'deut';
+    tritCSS.disabled = daltonismo !== 'trit';
+
+    // Tamanho fonte
+    const fontSize = localStorage.getItem('fontSize') || '16';
+    document.documentElement.style.fontSize = fontSize + 'px';
+    if(fontSizeSlider) fontSizeSlider.value = fontSize;
+
+    // Idioma
+    // Idioma PHP depende da sessão, para atualizar redireciona-se via GET (no index.php)
+  }
+
+  applyPreferences();
+
+  // Eventos
+
+  // Idioma (redireciona para trocar via PHP)
+  if(langSelector) {
+    langSelector.addEventListener('change', () => {
+      const selected = langSelector.value;
+      // Recarrega a página com ?lang= para mudar PHP
+      window.location.search = `?lang=${selected}`;
+    });
+  }
+
