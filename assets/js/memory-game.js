@@ -20,4 +20,44 @@ document.addEventListener('DOMContentLoaded', () => {
   let previousTarget = null;
   let delay = 1200;
 
- 
+  function resetGuesses() {
+    firstGuess = '';
+    secondGuess = '';
+    count = 0;
+    previousTarget = null;
+  }
+
+  function createBoard() {
+    gameGrid.forEach(item => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.dataset.name = item.name;
+
+      const front = document.createElement('div');
+      front.classList.add('front');
+
+      const back = document.createElement('div');
+      back.classList.add('back');
+      back.style.backgroundImage = `url(${item.img})`;
+
+      card.appendChild(front);
+      card.appendChild(back);
+
+      grid.appendChild(card);
+    });
+  }
+
+  createBoard();
+
+  grid.addEventListener('click', function(e) {
+    let clicked = e.target;
+
+    if (
+      clicked.nodeName === 'SECTION' ||
+      clicked === previousTarget ||
+      clicked.parentNode.classList.contains('selected') ||
+      clicked.parentNode.classList.contains('matched')
+    ) {
+      return;
+    }
+
