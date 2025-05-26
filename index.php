@@ -54,4 +54,28 @@ require_once __DIR__ . "/lang/" . $_SESSION['lang'] . ".php";
         </select>
     </aside>
 
-    
+    <main class="content">
+        <section class="intro">
+            <div class="balloon">
+                <h1>Hello Kitty</h1>
+                <p><?php echo $lang['intro_text']; ?></p>
+            </div>
+        </section>
+
+        <section class="characters">
+            <a href="personagem1.php"><img src="assets/img/personagem1.png" class="circle-button"></a>
+            <a href="personagem2.php"><img src="assets/img/personagem2.png" class="circle-button"></a>
+            <a href="personagem3.php"><img src="assets/img/personagem3.png" class="circle-button"></a>
+            <a href="personagem4.php"><img src="assets/img/personagem4.png" class="circle-button"></a>
+        </section>
+
+        <section class="memory-game">
+            <iframe src="game.html" width="100%" height="500px" frameborder="0"></iframe>
+        </section>
+    </main>
+</div>
+
+<script src="assets/js/accessibility.js"></script>
+
+</body>
+</html>
