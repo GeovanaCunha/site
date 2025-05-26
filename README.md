@@ -1,1 +1,2 @@
-# site
+# SITE SOBRE A HELLO KITTY
+# FEITO POR: Geovana e Emilly
