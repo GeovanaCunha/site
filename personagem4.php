@@ -12,3 +12,22 @@ require_once __DIR__ . "/lang/" . $_SESSION['lang'] . ".php";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Keroppi</title>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/dark-mode.css" id="dark-mode-css" disabled />
+    <link rel="stylesheet" href="assets/css/daltonismo-prot.css" id="prot-css" disabled />
+    <link rel="stylesheet" href="assets/css/daltonismo-deut.css" id="deut-css" disabled />
+    <link rel="stylesheet" href="assets/css/daltonismo-trit.css" id="trit-css" disabled />
+</head>
+<body>
+    <div class="personagem-container">
+        <div class="imagem-personagem" style="background-color: #ffffff;">
+            <img src="assets/img/personagem4.png" alt="Keroppi" style="width:100%; height:auto;" />
+        </div>
+        <div class="descricao-personagem" style="background-color: #4CAF50; color: #fff; padding: 2rem;">
+            <h1>Keroppi</h1>
+            <p><?php echo $lang['keroppi_description'] ?? 'Um sapinho energético e curioso, sempre animado para novas aventuras.'; ?></p>
+            <a href="index.php">&larr; <?php echo $lang['back']; ?></a>
+        </div>
+    </div>
+    <script src="assets/js/accessibility.js"></script>
+</body>
+</html>
